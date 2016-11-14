@@ -1,0 +1,31 @@
+ul {
+  list-style: none; }
+
+.side-lists {
+  display: block; }
+  .side-lists a:link {
+    color: inherit; }
+  .side-lists a:visited {
+    color: inherit; }
+  .side-lists a:hover {
+    color: #fff; }
+  .side-lists:hover {
+    color: #fff;
+    background-color: #16232d;
+    cursor: pointer; }
+
+.side-list-item {
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  text-align: left;
+  padding-left: 45px;
+  box-sizing: border-box;
+  font-size: 14px; }
+
+.active {
+  background-color: #131e26;
+  color: #fff; }
+
+.active .side-lists {
+  color: #fff; }

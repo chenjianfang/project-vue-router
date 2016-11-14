@@ -1,0 +1,42 @@
+ul{
+	list-style: none;
+}
+$paddingTop:40px;
+.side-lists{
+	display: block;
+	a:link{
+		color: inherit;
+	}
+	a:visited{
+		color: inherit;
+	}
+	a:hover{
+		color: #fff;
+	}
+	&:hover{
+		color: #fff;
+		background-color: #16232d;
+		cursor: pointer;
+	}
+}
+.side-list-item{
+	display: block;
+	height: $paddingTop;
+	line-height: $paddingTop;
+	text-align: left;
+	padding-left: 45px;
+	box-sizing:border-box;
+	font-size: 14px;
+}
+.active{
+	background-color: #131e26;
+	color: #fff;
+}
+.active{
+	.side-lists{
+		color: #fff;
+	}
+}
+
+
+
