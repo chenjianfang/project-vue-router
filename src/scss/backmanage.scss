@@ -1,3 +1,4 @@
+@import 'media';
 @charset "utf-8";
 @mixin font-dpr($font-size){
     font-size: $font-size;
@@ -94,7 +95,7 @@ $paddingLeft:200px;
 	@include flex-orient-row();
 	width: 100%;
 	// height:$paddingTop;
-	padding-left: $paddingLeft+15px;
+	padding-left: $paddingLeft;
 	background-color: #fff;
 	box-sizing:border-box;
 	z-index: 1;
@@ -102,7 +103,12 @@ $paddingLeft:200px;
 	line-height: 1;
 	color: #363f44;
 	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
+	transition:all 0.5s;
+	-moz-transition:all 0.5s;
+	-webkit-transition:all 0.5s;
+	-o-transition:all 0.5s;
 	a{
+		display: block;
 		text-decoration: none;
 		text-align: center;
 		padding: 15px;
@@ -114,6 +120,18 @@ $paddingLeft:200px;
 }
 .nav-header-active{
 	background-color: #f6f8f8;
+	border-bottom: 1px solid #23b7e5;
+	box-sizing:border-box;
+}
+.navHeadImgLeft{
+	width: 44px;
+	height: 44px;
+	line-height: 44px;
+	text-align: center;
+	cursor: pointer;
+	img{
+		text-align: center;
+	}
 }
 .side{
 	position: fixed;
@@ -125,6 +143,10 @@ $paddingLeft:200px;
 	color: #7793a7;
 	box-sizing:border-box;
 	z-index: 2;
+	transition:all 0.5s;
+	-moz-transition:all 0.5s;
+	-webkit-transition:all 0.5s;
+	-o-transition:all 0.5s;
 	a{
 		text-decoration: none;
 	}
@@ -146,7 +168,71 @@ $paddingLeft:200px;
 	padding-top:$paddingTop;
 	padding-left: $paddingLeft;
 	box-sizing:border-box;
+	transition:all 0.5s;
+	-moz-transition:all 0.5s;
+	-webkit-transition:all 0.5s;
+	-o-transition:all 0.5s;
+
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack:center;
+	-moz-justify-content:center;
+	-webkit-justify-content:center;
+	justify-content: center;
+	-webkit-box-align:center;
+	-moz-align-items:center;
+	-webkit-align-items:center;
+	align-items: center;
+
 }
+.clearfix::after{
+	content: "";
+	display: block;
+	clear: both;
+}
+.menu-box{
+}
+.main-menu-item{
+	float: left;
+	text-align: center;
+	@include flex();
+	@include flex-orient-col();
+	@include flex-align();
+}
+.main-table{
+
+}
+.table-item-common{
+	height: 37px;
+	line-height: 37px;
+	width: 100%;
+	box-sizing:border-box;
+	padding: 0 10px;
+	border-bottom: 1px solid rgb(128,128,128);
+	&:nth-child(odd){
+		background-color: #fff;
+	}
+	&:nth-child(even){
+		background-color: #f7f7f7;
+	}
+}
+.main-menu-head{
+	font-size: 14px;
+	font-weight: bold;
+}
+.main-detail-msg{
+	font-size: 12px;
+}
+
+
+
+
+
+
+
 
 
 

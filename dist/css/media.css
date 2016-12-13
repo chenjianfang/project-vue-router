@@ -1,0 +1,13 @@
+@charset "UTF-8";
+/* 交互 */
+.side-move {
+  width: 60px !important; }
+
+.main-move {
+  padding-left: 60px !important; }
+
+.nav-move {
+  padding-left: 60px !important; }
+
+.side-text a {
+  display: none !important; }

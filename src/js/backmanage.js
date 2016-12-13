@@ -6,18 +6,29 @@ const app = new Vue({
   data:{
   	message:"hello manage",
   	arr:[4,5],
-  	navlink:""
+  	navlink:"",
+    activeBool:[],
+    sideMove:false,
+    sidehidebox:false
   },
   components:{
   	common
   },
-  method:{
-  	handle:function(){
-  		console.log(this);
-  		this.arr.map(function(value){
-  			console.log(this);
-  		});
-  	}
+  methods:{
+    /*导航选中*/
+  	navHead(idx){
+      const that = this;
+      console.log(idx);
+      that.activeBool = that.activeBool.map( (value,index) => value = index === idx ? true : false);
+      console.log(that.activeBool)
+    },
+    /*侧边栏隐藏*/
+    moveTranslate(){
+      this.sideMove = !this.sideMove;
+      setTimeout(()=> {
+        this.sidehidebox = !this.sidehidebox;
+      },300);
+    }
   },
   created:function(){
   	let that = this;
@@ -26,12 +37,11 @@ const app = new Vue({
   		.then(function(response){
   			return response.json()
   		}).then(function(json){
-  			console.log(json);
   			that.navlink = json;
   			json.map(function(value,index){
-  				that.navlink[index].funHref = value.funHref.replace(/frame/,"")
+  				that.navlink[index].funHref = value.funHref.replace(/frame/,"");
+          that.activeBool.push(false);
   			});
-  			
   		}).catch(function(ex){
   			console.log(ex);
   		})

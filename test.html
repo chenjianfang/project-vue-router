@@ -12,27 +12,31 @@
 <body>
 <div class="container">
 	<div id="app">
-		<nav class="nav-header">
-			<router-link v-for="item in navlink" v-bind:to="item.funHref">
-				{{item.name}}
-			</router-link>
-
-			<!-- <router-link to="/member">会员管理</router-link>
-			<router-link to="/transaction">交易管理</router-link> -->
+		<nav class="nav-header" v-bind:class="{'nav-move':sideMove}">
+			<div class="navHeadImgLeft" v-on:click="moveTranslate">
+				<img src="./images/all.png" width="14" height="14">
+			</div>
+			
+			<div v-for="(item,index) in navlink" v-on:click="navHead(index)" v-bind:class="{'nav-header-active':activeBool[index]}">
+				<router-link v-bind:to="item.funHref">
+					{{item.name}}
+				</router-link>
+			</div>
+			
 		</nav>
 
 		<!-- 侧边栏 -->
-		<div class="side">
+		<div class="side" v-bind:class="{'side-move':sideMove}">
 			<div class="side-logo">Vue.js</div>
 			<div>
-				<router-view name="sidelayout">
+				<router-view name="sidelayout" v-bind:class="{'router-side-view':sidehidebox}">
 				</router-view>
 			</div>
 			
 		</div>
 
 		<!-- 主内容 -->
-		<div class="main">
+		<div class="main" v-bind:class="{'main-move':sideMove}">
 			<router-view name="main"></router-view>
 		</div>
 		<!-- <common>

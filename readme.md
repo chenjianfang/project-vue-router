@@ -1,1 +1,2 @@
-.html地址：D:\projectCode\ebaoly\trunk\pc-ebaoly-web\WebRoot\html\register\re_register.html
+# 后台管理系统
+# 路由vue-router 

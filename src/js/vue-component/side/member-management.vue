@@ -1,6 +1,6 @@
 <template>
 	<ul>
-		<li v-for="(item,index) in items" class="side-lists">
+		<li v-for="(item,index) in items" class="side-lists sidetext-move">
 			<router-link class="side-list-item" v-bind:to="router[index]">{{item.name}}</router-link>
 		</li>
 	</ul>
@@ -11,7 +11,7 @@
 		data(){
 			return{
 				items:[],
-				router:["member1","member2","member3","member4","member5"]
+				router:[]
 			}
 		},
 		methods:{
@@ -25,10 +25,9 @@
 				}).then(function(json){
 					console.log(json);
 					that.items = json;
-					json.map(function(value,index){
-						let temp = value.funHref.replace(/^\//,"");
-						that.router.push(temp.split("/")[0]);
-					})
+					json.map( (value) => {
+						that.router.push(value.funHref.replace(/\//g,"_"));
+					});
 					console.log(that.router);
 				}).catch(function(ex){
 					console.log(ex);

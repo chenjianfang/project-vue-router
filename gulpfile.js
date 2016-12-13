@@ -6,6 +6,18 @@ gulpTask("backmanage",{
 	"gc":"./dist/css/"
 },true);
 
+//添加压缩的头信息
+var pkg = require('../package.json');
+var banner = ['/**',
+	'*<%= pkg.name %> - <%= pkg.description %>',
+	'* @authors <%= pkg.author %>',
+	'* @version <%= pkg.version %>',
+	'* @link <%= pkg.homepage %>',
+	'* @license <%= pkg.license %>',
+	'*/',
+	''
+].join('\n');
+
 function gulpTask(projectName,fileUrl,webpackBool){
 	var gulp = require("gulp");
 	var webpack = require("webpack");
@@ -14,6 +26,7 @@ function gulpTask(projectName,fileUrl,webpackBool){
 	var minifyCSS = require('gulp-minify-css');
 	var concat = require('gulp-concat');
 	var rename = require('gulp-rename');
+	var header = require('gulp-header');
 	var webpackConfig = require("./webpack.config.js");
 
 	var taskArr = [];
@@ -86,6 +99,7 @@ function gulpTask(projectName,fileUrl,webpackBool){
 			.pipe(concat(projectName+'.js'))
 			.pipe(rename({suffix:'.min'}))
 			.pipe(uglify())
+			.pipe(header(banner,{pkg:pkg}))
 			.pipe(gulp.dest(getFile_js + 'uglify'))
 	});
 
@@ -101,6 +115,7 @@ function gulpTask(projectName,fileUrl,webpackBool){
 		.pipe(concat(projectName + '.css'))
 		.pipe(rename({suffix:'.min'}))
 		.pipe(minifyCSS())
+		.pipe(header(banner,{pkg:pkg}))
 		.pipe(gulp.dest(getFile_css+'uglify'))
 	});
 

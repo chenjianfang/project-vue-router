@@ -2,7 +2,9 @@ ul {
   list-style: none; }
 
 .side-lists {
-  display: block; }
+  display: block;
+  position: relative;
+  height: 40px; }
   .side-lists a:link {
     color: inherit; }
   .side-lists a:visited {
@@ -13,6 +15,21 @@ ul {
     color: #fff;
     background-color: #16232d;
     cursor: pointer; }
+  .side-lists::before {
+    position: absolute;
+    content: "";
+    background: url("../../images/fangzhipige.png") no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 25px;
+    transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -o-transform: translateY(-50%); }
 
 .side-list-item {
   display: block;
@@ -29,3 +46,6 @@ ul {
 
 .active .side-lists {
   color: #fff; }
+
+.router-side-view a {
+  display: none; }

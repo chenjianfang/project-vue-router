@@ -1,0 +1,16 @@
+/* 交互 */
+$moveTranslate:60px!important;
+.side-move{
+	width: $moveTranslate;
+}
+.main-move{
+	padding-left: $moveTranslate;
+}
+.nav-move{
+	padding-left: $moveTranslate;
+}
+.side-text{
+	a{
+		display: none!important;
+	}
+}
